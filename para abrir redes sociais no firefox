@@ -1,0 +1,24 @@
+
+# Esperar um pouco para a página carregar
+time.sleep(5)
+
+# Abrir Instagram em uma nova aba
+driver.execute_script("window.open('https://www.instagram.com', '_blank');")
+
+# Mudar para a nova aba
+driver.switch_to.window(driver.window_handles[1])
+
+# Esperar a página carregar
+time.sleep(5)
+
+# Alternar entre abas e ajustar a tela
+driver.switch_to.window(driver.window_handles[0])  # Volta para TikTok
+driver.set_window_rect(0, 0, 960, 1080)  # Ajusta a posição e tamanho da janela
+driver.switch_to.window(driver.window_handles[1])  # Muda para Instagram
+driver.set_window_rect(960, 0, 960, 1080)  # Ajusta a posição e tamanho da janela
+
+# Mantenha o navegador aberto
+input("Pressione Enter para fechar o navegador...")
+
+# Fechar o navegador
+driver.quit()
